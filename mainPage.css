@@ -1,0 +1,107 @@
+/* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+#map {
+    height: 100%;
+}
+    /* Optional: Makes the sample page fill the window. */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#pac-input {
+    background-color: #fff;
+    font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+    font-size: 26px;
+    background-color: #F58E07;
+    border-color: black;
+    border-radius: 4px;
+    font-weight: 300;
+    margin-left: 30%;
+    margin-top: 4%;
+    padding-left: 0.4%;
+    text-overflow: ellipsis;
+    width: 30%;
+}
+
+#left-panel {
+  width: 20%;
+  height: 70%;
+  border:  solid black;
+  background-color:#F58E07;
+  position: fixed;
+  top: 10%;
+  border-bottom-right-radius: 2%;
+  left: -20%;
+  padding: 2%;
+  -webkit-transition: all 1.0s ease-in-out;
+}
+
+
+#left-panel2 {
+ width:9.4%;
+ height:5.5%;
+ position:absolute;
+ top:-0.4%;
+ border-top: solid black;
+ border-right:  solid black;
+ border-bottom:  solid black;
+ border-bottom-right-radius: 20%;
+ border-top-right-radius: 20%;
+ right:-10%;
+ background:#F58E07;
+}
+
+
+button {
+    position: absolute;
+    -webkit-appearance: none;
+    background: transparent;
+    top:2%;
+    bottom:2%;
+    left:1%;
+    right: 2px;
+    border: 1;
+    outline: transparent;
+}
+#rightButt{
+    display: none;
+}
+
+.arrow {
+    display:block;
+    top:4%;
+    bottom:2%;
+    right:1%;
+    left:1%;
+    cursor: pointer;
+}
+.left {
+  display: none;
+}
+
+
+/*.left:hover polyline,
+.left:focus polyline {
+  stroke-width: 3;
+}
+
+.left:active polyline {
+  stroke-width: 3;
+  transition: all 100ms ease-in-out;
+}
+
+.right:hover polyline,
+.right:focus polyline {
+  stroke-width: 3;
+}
+
+.right:active polyline {
+  stroke-width: 3;
+  transition: all 100ms ease-in-out;
+}
+
+polyline {
+  transition: all 250ms ease-in-out;
+}*/
