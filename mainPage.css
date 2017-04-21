@@ -52,19 +52,6 @@ html, body {
 
 }
 
-
-button {
-    position: absolute;
-    -webkit-appearance: none;
-    background: transparent;
-    display:block;
-    top:1%;
-    bottom:80%;
-    right:1%;
-    left:95%;
-    border: 1;
-    outline: transparent;
-}
 #rightButt{
     display: none;
 }
@@ -72,10 +59,10 @@ button {
 .arrow {
     display:block;
     position: absolute;
-    top:43%;
+    top:36%;
     bottom:45%;
     right:1%;
-    left:95%;
+    left:88%;
     cursor: pointer;
 }
 .right {
