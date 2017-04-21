@@ -22,14 +22,45 @@ html, body {
     width: 25%;
     height:5%;
 }
+#place {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  
+  -webkit-flex-flow: row wrap;
+  justify-content: space-around;
+}
+li {
+  justify-content: center;
+  text-align: center;
+}
+.flex-item {
+  background: tomato;
+  border-radius: 4px;
+  padding: 5px;
+  width: 80%;
+  height: 10vh;
+  
+  color: white;
+  font-weight: bold;
+  font-size: 50%;
+}
 
 #left-panel {
+  display: flex;
+  flex-direction: column;
   width: 25%;
   height: 100%;
   background-color:#F58E07;
   position: fixed;
   top: -1.0%;
-  left: -4%;
+  left: 0%;
   padding: 2%;
   -webkit-transition: all 1.0s ease-in-out;
 }
