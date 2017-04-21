@@ -13,7 +13,6 @@
           mapTypeId: 'roadmap',
           disableDefaultUI: true
         });
-
         // Create the search box and link it to the UI element.
         var input = document.getElementById('pac-input');
         var searchBox = new google.maps.places.SearchBox(input);
@@ -73,24 +72,22 @@
           map.fitBounds(bounds);
         });
       }
-var elements = Array.from(document.querySelectorAll('svg'));
-
-document.getElementById('rightArrow').onclick = function () 
+function left() 
 {
     document.getElementById("rightArrow").style.display="none";
     document.getElementById("leftArrow").style.display="block";
     document.getElementById("left-panel").style.left="-4%";
     document.getElementById("leftButt").style.display="none";  
     document.getElementById("rightButt").style.display="block";
-    alert('sadas');
 };
 
-document.getElementById('leftArrow').addEventListener("click", function (event) 
+function right() 
 {
     document.getElementById("rightArrow").style.display="block";
     document.getElementById("leftArrow").style.display="none";
-    document.getElementById("left-panel").style.left="-20%";
+    document.getElementById("left-panel").style.left="-27%";
     document.getElementById("rightButt").style.display="none";
-    alert('sadas');
     document.getElementById("leftButt").style.display="block";
-},false);
+};
+
+    
