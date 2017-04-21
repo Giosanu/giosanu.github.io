@@ -64,7 +64,7 @@
               position: place.geometry.location
             }));
             //put info in cells
-            placesList.innerHTML += '<li class="flex-item" onclick="alert(\'sal\')">' +'<img src="' + place.icon + '" height="10" width="10"> ' +  place.name + ' at ' + place.formatted_address +  '</li><br>';
+            placesList.innerHTML += '<button class="flex-item" onclick="alert(\'sal\')">' +'<img src="' + place.icon + '" height="20" width="20"> ' +  place.name + ' at ' + place.formatted_address +  '</button>';
             if (place.geometry.viewport) {
               // Only geocodes have viewport.
               bounds.union(place.geometry.viewport);
