@@ -13,12 +13,15 @@
      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRYFIiuyheFB9JYUl0yTlYW9jYGecAhGY&libraries=places&callback=initAutocomplete" async defer></script>
     <div id="map"></div>
     <div id="left-panel">
-         <svg id="leftArrow" class="arrow left" width="5%" height="5%" viewBox="0 0 50 80" >
-                        <polyline fill="none" stroke="black"  points="
+         <svg id="leftArrow" class="arrow left" width="5%" height="5%" viewBox="0 0 50 80" onclick="right()">
+                        <polyline fill="none" stroke="black"  stroke-width="4px" points="
                         45.63,75.8 0.375,38.087 45.63,0.375 "/>
                     </svg>  
-        <svg  id="rightArrow"  class="arrow right" width="5%" height="5%"  viewBox="0 0 50 80" >
-                        <polyline fill="none" stroke="black"  points="
+        <svg  id="rightArrow"  class="arrow right" width="5%" height="5%"  viewBox="0 0 50 80" onclick="left()" >
+                        <polyline fill="none" stroke="black" stroke-width="4px" points="
                         0.375,0.375 45.63,38.087 0.375,75.8 "/>
     </div>
+    <div id="output" font="200px">
+    </div>
+
 </body>
