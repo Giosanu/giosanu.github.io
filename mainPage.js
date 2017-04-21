@@ -13,6 +13,8 @@
           mapTypeId: 'roadmap',
           disableDefaultUI: true
         });
+        
+        var placesList = document.getElementById('places');
         // Create the search box and link it to the UI element.
         var input = document.getElementById('pac-input');
         var searchBox = new google.maps.places.SearchBox(input);
@@ -28,7 +30,7 @@
         // more details for that place.
         searchBox.addListener('places_changed', function() {
           var places = searchBox.getPlaces();
-
+          placesList.innerHTML = "";
           if (places.length == 0) {
             return;
           }
@@ -61,7 +63,8 @@
               title: place.name,
               position: place.geometry.location
             }));
-
+            //put info in cells
+            placesList.innerHTML += '<li class="flex-item" onclick="alert(\'sal\')">' +'<img src="' + place.icon + '" height="10" width="10"> ' +  place.name + ' at ' + place.formatted_address +  '</li><br>';
             if (place.geometry.viewport) {
               // Only geocodes have viewport.
               bounds.union(place.geometry.viewport);
@@ -76,7 +79,7 @@ function left()
 {
     document.getElementById("rightArrow").style.display="none";
     document.getElementById("leftArrow").style.display="block";
-    document.getElementById("left-panel").style.left="-4%";
+    document.getElementById("left-panel").style.left="0%";
     document.getElementById("leftButt").style.display="none";  
     document.getElementById("rightButt").style.display="block";
 };
