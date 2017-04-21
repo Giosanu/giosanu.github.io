@@ -13,14 +13,14 @@ html, body {
 #pac-input {
     background-color: #fff;
     font-family: Georgia, Times;
-    font-size: 400%;
+    font-size:auto;
     background-color: #F58E07;
-    margin-left: 40%;
     margin-top: 2%;
-    margin-right:30%;
+    margin-left:70%;
     padding-left: 3px;
     text-overflow: ellipsis;
     width: 25%;
+    height:5%;
 }
 
 #left-panel {
@@ -78,7 +78,7 @@ button {
     left:95%;
     cursor: pointer;
 }
-.left {
+.right {
   display: none;
 }
 
