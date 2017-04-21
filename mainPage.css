@@ -40,13 +40,14 @@ button {
     color: rgba(255,255,255,1);
     text-decoration: none;
     background-color: rgba(219,87,5,1);
-    font-family: 'Yanone Kaffeesatz';
+    font-family: Courier New, Courier, monospace;
     font-weight: 700;
     font-size: 1em;
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
     margin-bottom: 7px;
     border-radius: 8px;
+    min-width: 100%;
    display: inline-block;
 }
 .flex-item {
