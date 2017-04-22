@@ -92,7 +92,8 @@
               position: place.geometry.location
             }));
             //put info in cells
-            placesList.innerHTML += '<button class="flex-item" onclick="alert(\'sal\')">' +'<img src="' + place.icon + '" height="20" width="20"> ' +  place.name + ' at ' + place.formatted_address +  '</button>';
+            
+            placesList.innerHTML += '<div id="row"><div id="options"><img id="heart" src="heart.svg" onclick="alert(\'Added ' + place.name +' to your favorites list!\')" class="add" padding-right="10" width="40" height="40"/><img src="marker.svg" onclick="'+ map.setCenter(place.formatted_address) +'" class="add"  width="40" height="40"/><img src="'+ place.icon+'" id= "placeType" class="add" onclick="alert(\'' + place.formatted_address +'\')" width="40" height="40"/></div><button class="flex-item" onclick="alert(\'sal\')">'  +  place.name + '</button><br><div>';
             if (place.geometry.viewport) {
               // Only geocodes have viewport.
               bounds.union(place.geometry.viewport);
@@ -101,6 +102,8 @@
             }
           });
           map.fitBounds(bounds);
+          
+          left();
         });
       }
 
@@ -111,7 +114,7 @@ function left()
 {
     document.getElementById("rightArrow").style.display="none";
     document.getElementById("leftArrow").style.display="block";
-    document.getElementById("left-panel").style.left="0%";
+    document.getElementById("left-panel").style.left="-4%";
     document.getElementById("leftButt").style.display="none";  
     document.getElementById("rightButt").style.display="block";
 };
@@ -120,9 +123,22 @@ function right()
 {
     document.getElementById("rightArrow").style.display="block";
     document.getElementById("leftArrow").style.display="none";
-    document.getElementById("left-panel").style.left="-27%";
+    document.getElementById("left-panel").style.left="-37.5%";
     document.getElementById("rightButt").style.display="none";
     document.getElementById("leftButt").style.display="block";
 };
 
-    
+
+$('#places').bind('wheel DOMMouseScroll', function(e) {
+    var scrollTo = 0;
+    alert('as');
+    e.preventDefault();
+    if (e.type == 'wheel') {
+        alert('as');
+    }
+    else if (e.type == 'DOMMouseScroll') {
+        scrollTo = 40 * e.originalEvent.detail;
+        alert("d"+e.originalEvent.detail);
+    }
+    $(this).scrollTop(scrollTo + $(this).scrollTop());
+});
