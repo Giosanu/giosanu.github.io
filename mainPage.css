@@ -1,6 +1,10 @@
 /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
 
+@font-face {
+    font-family: 'Cray';
+    src: url('DK Crayon Crumble.ttf') format('truetype');
+  }
 @media (min-width: 726px){
     #map {
       height: 100%;
@@ -13,17 +17,14 @@
       overflow: hidden;
   }
 
-  @font-face {
-    font-family: 'Cray';
-    src: url('DK Crayon Crumble.tff') format('truetype');
-  }
 
   #pac-input {
     display: block;
     background-color: #fff;
     color:white;
-    font-family: "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
-    font-size: 2em;
+    font-family: 'Cray';
+    letter-spacing: 1px;
+    font-size: 3em;
     background-image: url("menu.jpg");
     background-size: 100% 100%;
     border: 10px solid transparent;
@@ -45,9 +46,10 @@
     color: white;
     text-decoration: none;
     background-color: #526151;
-    font-family: "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;;
-    font-weight: 700;
-    font-size: 1em;
+    font-family: 'Cray';
+    letter-spacing: 1px;
+    font-size: 2em;
+    /*font-weight: 700;*/
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
     border-radius: 8px;
@@ -221,16 +223,13 @@
       overflow: hidden;
   }
 
-  @font-face {
-    font-family: 'Cray';
-    src: url('DK Crayon Crumble.tff') format('truetype');
-  }
 
   #pac-input {
     background-color: #fff;
     color:white;
-    font-family: "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
-    font-size: 2em;
+    font-family: 'Cray';
+    letter-spacing: 1px;
+    font-size: 3em;
     background-image: url("menu.jpg");
     background-size: 100% 100%;
     border: 5px solid transparent;
@@ -252,9 +251,9 @@
     color: white;
     text-decoration: none;
     background-color: #526151;
-    font-family: "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;;
-    font-weight: 700;
-    font-size: 1em;
+    font-family: 'Cray';
+    letter-spacing: 1px;
+    font-size: 2em;
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
     border-radius: 8px;
