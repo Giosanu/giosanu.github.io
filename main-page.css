@@ -1,5 +1,8 @@
 
-
+@font-face {
+    font-family: 'Cray';
+    src: url('DK Crayon Crumble.ttf') format('truetype');
+  }
 li a{
     color: white;
     outline: none;
@@ -35,7 +38,9 @@ li a:active, #hidden-menu:active {
 
 @media (min-width: 726px) {
     .menu-bar{
-         font-family: "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
+        font-family: 'Cray';
+        letter-spacing: 1px;
+        font-size: 1em;
         max-width: 2000px;
         width: 40%;
         padding: 0;
@@ -66,6 +71,9 @@ li a:active, #hidden-menu:active {
     #hidden-menu::after{
         
         content: "Menu";
+        font-family: 'Cray';
+        letter-spacing: 3px;
+        font-size: 1.8rem;
     }
 
     #hidden-menu{
@@ -76,7 +84,6 @@ li a:active, #hidden-menu:active {
         position: fixed;
         bottom: 5px;
         left: 30.33%;
-        font-size: 1rem;
         text-align: center;
         margin: 0;
         width: 30%;
@@ -91,15 +98,16 @@ li a:active, #hidden-menu:active {
         line-height: 270%;
     }
 
-    .menu-bar{
-         font-family: "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
+    .menu-bar{ 
+        font-family: 'Cray';
+        letter-spacing: 2px;
         width: 30%;
         display: none;
         position: absolute;
         padding: 0;
         margin: 0;
         bottom: 63px;
-        font-size: 0.8rem;
+        font-size: 1rem;
         left: 32%;
     }
 
