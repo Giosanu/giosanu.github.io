@@ -5,31 +5,23 @@
       // This example requires the Places library. Include the libraries=places
       // parameter when you first load the API. For example:
       // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
-      var map;
-      
-  var markers = [];
-      var pos;
-      var infoWindow;
-      
-var directionsDisplay;
-var directionsService;
+
       function initAutocomplete() {
-        
-  directionsService = new google.maps.DirectionsService;
-  directionsDisplay = new google.maps.DirectionsRenderer();
-        map = new google.maps.Map(document.getElementById('map'), {
+        var map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: -33.8688, lng: 151.2195},
           zoom: 13,
           mapTypeId: 'roadmap',
           disableDefaultUI: true
         });
+        
+      var infoWindow = new google.maps.InfoWindow;
       if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
-            pos = {
+            var pos = {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             };
-            infoWindow = new google.maps.InfoWindow;
+
             infoWindow.setPosition(pos);
             infoWindow.setContent('Location found.');
             infoWindow.open(map);
@@ -61,6 +53,7 @@ var directionsService;
           searchBox.setBounds(map.getBounds());
         });
 
+        var markers = [];
         // Listen for the event fired when the user selects a prediction and retrieve
         // more details for that place.
         searchBox.addListener('places_changed', function() {
@@ -99,8 +92,8 @@ var directionsService;
               position: place.geometry.location
             }));
             //put info in cells
-
-            placesList.innerHTML += '<div id="row"><div id="options"><img id="heart" src="heart.svg" onclick="alert(\'Added ' + parse(place.name) +' to your favorites list!\')" class="add" padding-right="10" width="40" height="40"/><img src="marker.svg" onclick="fo(\''+ parse(place.name) + ' \',\''+parse(place.name) + ' ' + place.formatted_address +'\')" class="add"  width="40" height="40"/><img src="'+ place.icon+'" id= "placeType" class="add" onclick="alert(\'' + place.formatted_address +'\')" width="40" height="40"/></div><button onclick="calcRoute(\''+parse(place.name) + ' ' + place.formatted_address +'\')" class="flex-item" onclick="direction()">'  +  parse(place.name) + '</button><br><div>';
+            
+            placesList.innerHTML += '<div id="row"><div id="options"><img id="heart" src="heart.svg" onclick="alert(\'Added ' + place.name +' to your favorites list!\')" class="add" padding-right="10" width="40" height="40"/><img src="marker.svg" onclick="'+ map.setCenter(place.formatted_address) +'" class="add"  width="40" height="40"/><img src="'+ place.icon+'" id= "placeType" class="add" onclick="alert(\'' + place.formatted_address +'\')" width="40" height="40"/></div><button class="flex-item" onclick="direction()">'  +  place.name + '</button><br><div>';
             if (place.geometry.viewport) {
               // Only geocodes have viewport.
               bounds.union(place.geometry.viewport);
@@ -113,63 +106,15 @@ var directionsService;
           left();
         });
       }
-  var geocoder; 
-function parse(placeName){
-    return placeName.replace("\'","");
-}    
-function fo(name, place){
-  
-   markers.forEach(function(marker) {
-            marker.setMap(null);
-          });
-          markers = [];
-  geocoder = new google.maps.Geocoder();
-  geocoder.geocode( { 'address': place}, function(results, status) {
-      if (status == 'OK') {
-        map.setCenter(results[0].geometry.location);
+
         
-        infoWindow.setPosition(results[0].geometry.location);
-        infoWindow.setContent(name + 'here.');
-       var marker = new google.maps.Marker({
-            map: map,
-            position: results[0].geometry.location
-        });
-        markers.push(marker);
-        infoWindow.open(map,marker);
-      } else {
-        alert('Geocode was not successful for the following reason: ' + status);
-      }
-    });
-}
-function calcRoute(end) {
-   infoWindow.close();
-   markers.forEach(function(marker) {
-            marker.setMap(null);
-          });
-          markers = [];
-  directionsDisplay.setMap(map);
-  directionsService.route({
-          origin: pos,
-          destination: end,
-          travelMode: 'DRIVING'
-        }, function(response, status) {
-          if (status === 'OK') {
-            directionsDisplay.setDirections(response);
-          } else {
-            window.alert('Directions request failed due to ' + status);
-          }
-        });
-        infoWindow.setContent('You are here.');
-        infoWindow.setPosition(pos);
-        infoWindow.open(map);
-        right();
-}
+
       
 function left() 
 {
     document.getElementById("rightArrow").style.display="none";
     document.getElementById("leftArrow").style.display="block";
-    document.getElementById("left-panel").style.left="-4%";
+    document.getElementById("left-panel").style.left="-10%";
     document.getElementById("leftButt").style.display="none";  
     document.getElementById("rightButt").style.display="block";
 };
@@ -178,7 +123,22 @@ function right()
 {
     document.getElementById("rightArrow").style.display="block";
     document.getElementById("leftArrow").style.display="none";
-    document.getElementById("left-panel").style.left="-37.5%";
+    document.getElementById("left-panel").style.left="-54.5%";
     document.getElementById("rightButt").style.display="none";
     document.getElementById("leftButt").style.display="block";
 };
+
+
+$('#places').bind('wheel DOMMouseScroll', function(e) {
+    var scrollTo = 0;
+    alert('as');
+    e.preventDefault();
+    if (e.type == 'wheel') {
+        alert('as');
+    }
+    else if (e.type == 'DOMMouseScroll') {
+        scrollTo = 40 * e.originalEvent.detail;
+        alert("d"+e.originalEvent.detail);
+    }
+    $(this).scrollTop(scrollTo + $(this).scrollTop());
+});

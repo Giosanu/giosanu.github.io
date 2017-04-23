@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="mainPage.css">
+</head>
+
+<body>
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places&callback=initAutocomplete"></script>
+    <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+    <div id="map"></div>
+    <script src="mainPage.js"></script>
+    <div id="left-panel">
+        <div id="left-panel2">
+            <p>
+                <button id="leftArrow" class="arrow left" onclick="right()">
+                    <svg width="25px" height="30px" viewBox="0 0 50 80" xml:space="preserve">
+                        <polyline fill="none" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" points="
+                        45.63,75.8 0.375,38.087 45.63,0.375 "/>
+                    </svg>      
+                </button>
+                <button id="rightArrow" class="arrow right" onclick="left()">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25px" height="30px" viewBox="0 0 50 80" xml:space="preserve">
+                        <polyline fill="none" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" points="
+                        0.375,0.375 45.63,38.087 0.375,75.8 "/>
+                    </svg>
+                </button>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+CSS: 
+html, body {
+  height: 100%;
+  margin: 0;
+}
+#map{
+  height: 100%;
+  margin: 0;
+}
+#left-panel {
+  width: 20%;
+  height: 70%;
+  border: 5px solid #555;
+  background-color:#3D72BC;
+  position: fixed;
+  top: 10%;
+  border-bottom-right-radius: 2%;
+  left: -20%;
+  padding: 2%;
+  -webkit-transition: all 1.0s ease-in-out;
+}
+
+
+#left-panel2 {
+ width:40px;
+ height:40px;
+ position:absolute;
+ top:-0.6%;
+ border-top: 5px solid #555;
+ border-right: 5px solid #555;
+ border-bottom: 5px solid #555;
+ border-bottom-right-radius: 20%;
+ border-top-right-radius: 20%;
+ right:-10.6%;
+ background:#3D72BC;
+}
+
+
+button {
+  -webkit-appearance: none;
+  background: transparent;
+  border: 0;
+  outline:0;
+}
+
+svg {
+  padding: 5px;
+}
+
+.arrow {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  margin-top: -45px;
+  margin-left: -35px;
+  width: 30px;
+  height: 40px;
+}
+
+.left {
+  top: 110%;
+  left: 80%;
+  display: none;
+}
+
+.right {
+    top: 110%;
+  left: 80%;
+}
+
+.left:hover polyline,
+.left:focus polyline {
+  stroke-width: 3;
+}
+
+.left:active polyline {
+  stroke-width: 3;
+  transition: all 100ms ease-in-out;
+}
+
+.right:hover polyline,
+.right:focus polyline {
+  stroke-width: 3;
+}
+
+.right:active polyline {
+  stroke-width: 3;
+  transition: all 100ms ease-in-out;
+}
+
+polyline {
+  transition: all 250ms ease-in-out;
+}
+
+.pac-card {
+    margin: 10px 10px 0 0;
+    border-radius: 2px 0 0 2px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    outline: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    background-color: #fff;
+    font-family: Roboto;
+}
+
+#pac-container {
+    padding-bottom: 12px;
+    margin-right: 12px;
+}
+
+.pac-controls {
+    display: inline-block;
+    padding: 5px 11px;
+}
+
+.pac-controls label {
+    font-family: Roboto;
+    font-size: 13px;
+    font-weight: 300;
+}
+
+#pac-input {
+    background-color: #fff;
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+    margin-left: 12px;
+    padding: 0 11px 0 13px;
+    text-overflow: ellipsis;
+    width: 400px;
+}
+
+#pac-input:focus {
+    border-color: #4d90fe;
+}
+
+#title {
+    color: #fff;
+    background-color: #4d90fe;
+    font-size: 25px;
+    font-weight: 500;
+    padding: 6px 12px;
+}
+#target {
+    width: 345px;
+}
+
+JS:
+
+
+var mapOptions = {
+    center: new google.maps.LatLng(37.7831,-122.4039),
+    zoom: 12,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+};
+
+var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+
+  var marker = new google.maps.Marker({
+    position:  new google.maps.LatLng(37.7831,-122.4239),
+    map: map,
+    title: 'Hello World!'
+  });
+
+function left() 
+{
+    document.getElementById("rightArrow").style.display="none";
+    document.getElementById("leftArrow").style.display="block";
+    document.getElementById("left-panel").style.left="-4%";
+};
+
+function right() 
+{
+    document.getElementById("rightArrow").style.display="block";
+    document.getElementById("leftArrow").style.display="none";
+    document.getElementById("left-panel").style.left="-20%";
+};
+

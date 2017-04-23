@@ -69,12 +69,15 @@ button {
   padding-right: 10px;
 }
 #row{
+  left:10%;
+  right:2%;
+  margin-left:100px;
   border-radius: 3px;
   position: relative;
   white-space: normal;
   display: block ;
   border: transparent;
-  width: 90%;
+  width: 88%;
   border: 2px solid  #4B4B4B;
   margin-bottom: 10px;
 }
@@ -90,13 +93,13 @@ button {
 #left-panel {
   display: flex;
   flex-direction: column;
-  width: 35%;
+  width: 55%;
   height: 80%;
   background-image: url("menu.jpg");
   background-size: 100% 100%;
   position: absolute;
   top: -1.0%;
-  left: -37.5%;
+  left: -54.5%;
   border: 2px solid  grey;
   padding: 2%;
   border-radius: 5px;
@@ -104,9 +107,6 @@ button {
 }
 
 #places{
-  
-  
-  margin-right:100px;
   width: 100%;
   direction:rtl; 
   position: relative; 
