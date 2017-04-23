@@ -14,23 +14,24 @@
     <script src="mainPage.js"></script>
      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRYFIiuyheFB9JYUl0yTlYW9jYGecAhGY&libraries=places&callback=initAutocomplete" async defer></script>
     <div id="map"></div>
+
     <div id="left-panel">
-        <svg id="leftArrow" class="arrow left" width="20%" height="20%" viewBox="0 0 50 500" onclick="right()">
+        <div id="places" >
+        </div>
+         <svg id="leftArrow" class="arrow left" width="20%" height="20%" viewBox="0 0 50 500" onclick="right()">
                         <polyline fill="none" stroke="white"  stroke-width="6px" points="
-                        45.63,500.8 0.375,250.087 45.63,0.375 "/>
+                        45.63,500.8 10.375,250.087 45.63,0.375 "/>
                     </svg>  
         <svg  id="rightArrow"  class="arrow right" width="20%" height="20%"  viewBox="0 0 50 500" onclick="left()" >
                         <polyline fill="none" stroke="white" stroke-width="6px" points="
                         0.375,0.375 45.63,250.087 0.375,500.8 "/>
-        
-        <div id="places" >
-        </div>
+        </svg>
     </div>
-     <div class="menu">
-            <p id="hidden-menu"></p>
-            <ul class="menu-bar">
-                <li><a href="#">My Profile</a></li><li><a href="#">Add favourite</a></li><li><a href="#">Sign out</a></li>
-            </ul>
-        </div>
-
+    
+     <div id="menuID" class="menu">
+        <p id="hidden-menu" ></p>
+        <ul class="menu-bar">
+        <li><a href="#">My Profile</a></li><li><a href="#">Check-in</a></li><li><a href="#">Sign out</a></li>
+        </ul>
+    </div>
 </body>
