@@ -1,171 +1,394 @@
 /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
-#map {
-    height: 100%;
-}
-    /* Optional: Makes the sample page fill the window. */
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
 
-#pac-input {
-  background-color: #fff;
-  color:white;
-  font-family: "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
-  font-size: 2em;
-  
-  background-image: url("menu.jpg");
-  background-size: 100% 100%;
-  
-        border: 1px solid  grey;
-  border-radius: 0.3em;
-  margin-top: 2%;
-  margin-left:50%;
-  width:30%;
-  padding-left: 3px;
-  position: fixed;
-  text-overflow: ellipsis;
-}
+@media (min-width: 726px){
+    #map {
+      height: 100%;
+  }
+      /* Optional: Makes the sample page fill the window. */
+  html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+  }
 
-@font-face {
-  font-family: 'Cray';
-  src: url('DK Crayon Crumble.tff') format('truetype');
-}
+  @font-face {
+    font-family: 'Cray';
+    src: url('DK Crayon Crumble.tff') format('truetype');
+  }
 
-button {
-  position: relative;
-  color: white;
-  text-decoration: none;
-  background-color: #526151;
-  font-family: "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;;
-  font-weight: 700;
-  font-size: 1em;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  border-radius: 8px;
-  min-width: 90%;
-  max-width: 90%;
-  bottom: 5px;
-  left:5%;
-  right: 5%;
-  border: 2px solid  #4B4B4B;
-  opacity: 0.8;
-}
-#options{
-  
-  position: relative;
-  min-width: 90%;
-  max-width: 90%;
-  right: 5%;
-  left: 5%;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  #pac-input {
+    display: block;
+    background-color: #fff;
+    color:white;
+    font-family: "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
+    font-size: 2em;
+    background-image: url("menu.jpg");
+    background-size: 100% 100%;
+    border: 10px solid transparent;
+    padding: 10px;
+    -webkit-border-image: url("border21.svg") 40 stretch; /* Safari 3.1-5 */
+    -o-border-image: url("border21.svg") 40 stretch; /* Opera 11-12.1 */
+    -moz-border-image: url("border21.svg") 40 stretch;
+    border-image: url("border21.svg") 40 stretch;
+    margin-left:67.5%;
+    width:30%;
+    border-radius: 10%;
+    padding-left: 3px;
+    position: fixed;
+    text-overflow: ellipsis;
+  }
 
-}
-.add{
-  display: inline-block;
-  padding-right: 10px;
-}
-#row{
-  border-radius: 3px;
-  position: relative;
-  white-space: normal;
-  display: block ;
-  border: transparent;
-  width: 90%;
-  border: 2px solid  #4B4B4B;
-  margin-bottom: 10px;
-}
-.flex-item {
-  background-image: url("menu.jpg");
-  background-size: 100% 100%;
-  border-radius: 4px;
-  padding: 5px;
-  white-space: normal;
-  font-weight: bold;
-}
+  button {
+    position: relative;
+    color: white;
+    text-decoration: none;
+    background-color: #526151;
+    font-family: "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;;
+    font-weight: 700;
+    font-size: 1em;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    min-width: 90%;
+    max-width: 90%;
+    bottom: 5px;
+    left:5%;
+    right: 5%;
+    border: 2px solid  #4B4B4B;
+    opacity: 0.8;
+  }
+  #options{/*buttons positioning*/
+    
+    position: relative;
+    min-width: 90%;
+    max-width: 90%;
+    right: 5%;
+    left: 5%;
+    margin-top: 5px;
+    margin-bottom: 5px;
 
-#left-panel {
-  display: flex;
-  flex-direction: column;
-  width: 35%;
-  height: 80%;
-  background-image: url("menu.jpg");
-  background-size: 100% 100%;
-  position: absolute;
-  top: -1.0%;
-  left: -37.5%;
-  border: 2px solid  grey;
-  padding: 2%;
-  border-radius: 5px;
-  -webkit-transition: all 1.0s ease-in-out;
-}
+  }
+  .add{ /*button spacing*/
+    display: inline-block;
+    padding-right: 10px;
+  }
+  #row{
+    position: relative;
+    white-space: normal;
+    display: block ;
+    border: 2px solid grey;
+    width: 70%;
+    margin-bottom: 10px;
+    overflow-x: hidden;
+  }
+  .flex-item {
+    background-image: url("menu.jpg");
+    background-size: 100% 100%;
+    border-radius: 4px;
+    padding: 5px;
+    white-space: normal;
+    font-weight: bold;
+  }
 
-#places{
-  
-  
-  margin-right:100px;
-  width: 100%;
-  direction:rtl; 
-  position: relative; 
-  overflow: auto;
-  overflow-x: disabled;
-}
-
-#rightButt{
-    display: none;
-}
-
-.arrow {
-    display:block;
+  #left-panel {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 80%;
+    background-image: url("menu.jpg");
+    background-size: 100% 100%;
     position: absolute;
-    top:36%;
-    bottom:45%;
-    right:1%;
-    left:88%;
+    top: -1.0%;
+    left: -53%;
+    border: 15px solid transparent;
+    padding: 15px;
+    touch-action: manipulation;
+    -webkit-border-image: url("border21.svg") 40 stretch; /* Safari 3.1-5 */
+    -o-border-image: url("border21.svg") 40 stretch; /* Opera 11-12.1 */
+    -moz-border-image: url("border21.svg") 40 stretch;
+    border-image: url("border21.svg") 40 stretch;
+    padding: 2%;
+    border-radius: 4%;
+    -webkit-transition: all .5s ease-in-out;
+  }
+
+  #places{
+    
+    
+    margin-right:100px;
+    width: 100%;
+    direction:rtl; 
+    position: relative; 
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  #rightButt{
+      display: none;
+  }
+
+  .arrow {
+      display:block;
+      position: absolute;
+      top:36%;
+      bottom:45%;
+      right:1%;
+      left:88%;
+      cursor: pointer;
+  }
+  .left {
+    display: none;
+  }
+
+
+
+  button:hover{
+    
     cursor: pointer;
+    opacity: 1;
+  }
+  img:hover{
+    
+      cursor: pointer;
+    opacity: 0.5;
+
+  }
+
+
+  .left:hover polyline,
+  .left:focus polyline {
+    stroke-width: 3;
+  }
+
+  .left:active polyline {
+    stroke-width: 3;
+    transition: all 100ms ease-in-out;
+  }
+
+  .right:hover polyline,
+  .right:focus polyline {
+    stroke-width: 3;
+  }
+
+  .right:active polyline {
+    stroke-width: 3;
+    transition: all 100ms ease-in-out;
+  }
+
+  polyline {
+    transition: all 250ms ease-in-out;
+  }
+
+
 }
-.left {
-  display: none;
+
+@media (min-width: 726px){
+   #left-panel {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 80%;
+    background-image: url("menu.jpg");
+    background-size: 100% 100%;
+    position: absolute;
+    top: -1.0%;
+    left: -53%;
+    border: 15px solid transparent;
+    padding: 15px;
+    touch-action: manipulation;
+    -webkit-border-image: url("border21.svg") 40 stretch; /* Safari 3.1-5 */
+    -o-border-image: url("border21.svg") 40 stretch; /* Opera 11-12.1 */
+    -moz-border-image: url("border21.svg") 40 stretch;
+    border-image: url("border21.svg") 40 stretch;
+    padding: 2%;
+    border-radius: 4%;
+    -webkit-transition: all .5s ease-in-out;
+  }
+
 }
+@media (max-width: 726px){
+
+   #map {
+      height: 100%;
+  }
+      /* Optional: Makes the sample page fill the window. */
+  html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+  }
+
+  @font-face {
+    font-family: 'Cray';
+    src: url('DK Crayon Crumble.tff') format('truetype');
+  }
+
+  #pac-input {
+    background-color: #fff;
+    color:white;
+    font-family: "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
+    font-size: 2em;
+    background-image: url("menu.jpg");
+    background-size: 100% 100%;
+    border: 5px solid transparent;
+    padding: 5px;
+    -webkit-border-image: url("border21.svg") 40 stretch; /* Safari 3.1-5 */
+    -o-border-image: url("border21.svg") 40 stretch; /* Opera 11-12.1 */
+    -moz-border-image: url("border21.svg") 40 stretch;
+    border-image: url("border21.svg") 40 stretch;
+    margin-left:65%;
+    width:30%;
+    border-radius: 10%;
+    padding-left: 3px;
+    position: fixed;
+    text-overflow: ellipsis;
+  }
+
+  button {
+    position: relative;
+    color: white;
+    text-decoration: none;
+    background-color: #526151;
+    font-family: "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;;
+    font-weight: 700;
+    font-size: 1em;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    min-width: 90%;
+    max-width: 90%;
+    bottom: 5px;
+    left:5%;
+    right: 5%;
+    border: 2px solid  #4B4B4B;
+    opacity: 0.8;
+  }
+  #options{/*buttons positioning*/
+    
+    position: relative;
+    min-width: 90%;
+    max-width: 90%;
+    right: 5%;
+    left: 5%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+  }
+  .add{ /*button spacing*/
+    display: inline-block;
+    padding-right: 10px;
+  }
+  #row{
+    position: relative;
+    white-space: normal;
+    display: block ;
+    border: 2px solid grey;
+    width: 70%;
+    margin-bottom: 10px;
+    right:10%;
+    overflow-x: hidden;
+  }
+  .flex-item {
+    background-image: url("menu.jpg");
+    background-size: 100% 100%;
+    border-radius: 4px;
+    padding: 5px;
+    white-space: normal;
+    font-weight: bold;
+  }
+
+  #left-panel {
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+    background-image: url("menu.jpg");
+    background-size: 100% 100%;
+    position: absolute;
+    left:-108%;
+    top: -1.0%;
+    width:109%;
+    border: 10px solid transparent;
+    padding: 10px;
+    touch-action: manipulation;
+    -webkit-border-image: url("border21.svg") 40 stretch; /* Safari 3.1-5 */
+    -o-border-image: url("border21.svg") 40 stretch; /* Opera 11-12.1 */
+    -moz-border-image: url("border21.svg") 40 stretch;
+    border-image: url("border21.svg") 40 stretch;
+    padding: 2%;
+    border-radius: 4%;
+    -webkit-transition: all .5s ease-in-out;
+    
+  }
+
+  #places{
+    
+    
+    margin-right:100px;
+    width: 100%;
+    direction:rtl; 
+    position: relative; 
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  #rightButt{
+      display: none;
+  }
+
+  .arrow {
+      height:300px;
+      display:block;
+      position: absolute;
+      top:15%;
+      width:7%;
+      bottom:70%;
+      left:92%;
+      cursor: pointer;
+  }
+  .left {
+    display: none;
+  }
 
 
 
-button:hover{
-  
+  button:hover{
+    
     cursor: pointer;
-  opacity: 1;
-}
-img:hover{
-  
-    cursor: pointer;
-  opacity: 0.5;
+    opacity: 1;
+  }
+  img:hover{
+    
+      cursor: pointer;
+    opacity: 0.5;
 
-}
+  }
 
 
-.left:hover polyline,
-.left:focus polyline {
-  stroke-width: 3;
-}
+  .left:hover polyline,
+  .left:focus polyline {
+    stroke-width: 3;
+  }
 
-.left:active polyline {
-  stroke-width: 3;
-  transition: all 100ms ease-in-out;
-}
+  .left:active polyline {
+    stroke-width: 3;
+    transition: all 100ms ease-in-out;
+  }
 
-.right:hover polyline,
-.right:focus polyline {
-  stroke-width: 3;
-}
+  .right:hover polyline,
+  .right:focus polyline {
+    stroke-width: 3;
+  }
 
-.right:active polyline {
-  stroke-width: 3;
-  transition: all 100ms ease-in-out;
-}
+  .right:active polyline {
+    stroke-width: 3;
+    transition: all 100ms ease-in-out;
+  }
 
-polyline {
-  transition: all 250ms ease-in-out;
-}
+  polyline {
+    transition: all 250ms ease-in-out;
+  }
+
+  }

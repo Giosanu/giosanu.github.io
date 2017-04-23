@@ -64,6 +64,8 @@ var directionsService;
         // Listen for the event fired when the user selects a prediction and retrieve
         // more details for that place.
         searchBox.addListener('places_changed', function() {
+          
+  directionsDisplay.setMap(null);
           var places = searchBox.getPlaces();
           placesList.innerHTML = "";
           if (places.length == 0) {
@@ -115,10 +117,11 @@ var directionsService;
       }
   var geocoder; 
 function parse(placeName){
-    return placeName.replace("\'","");
-}    
+  placeName = placeName.split('\'').join("");
+    return placeName.split('\"').join("");
+}
 function fo(name, place){
-  
+  directionsDisplay.setMap(null);
    markers.forEach(function(marker) {
             marker.setMap(null);
           });
@@ -140,6 +143,10 @@ function fo(name, place){
         alert('Geocode was not successful for the following reason: ' + status);
       }
     });
+    
+  if (document.documentElement.clientWidth<726){
+      right();
+  }
 }
 function calcRoute(end) {
    infoWindow.close();
@@ -164,21 +171,42 @@ function calcRoute(end) {
         infoWindow.open(map);
         right();
 }
-      
 function left() 
 {
     document.getElementById("rightArrow").style.display="none";
-    document.getElementById("leftArrow").style.display="block";
-    document.getElementById("left-panel").style.left="-4%";
-    document.getElementById("leftButt").style.display="none";  
-    document.getElementById("rightButt").style.display="block";
+    document.getElementById("leftArrow").style.display="block"; 
+    if (document.documentElement.clientWidth<726){
+      document.getElementById("left-panel").style.left="-18%";
+    }
+    if (document.documentElement.clientWidth>726){
+            if (document.documentElement.clientHeight<1000){
+         document.getElementById("menuID").style.left="none";
+      }
+    document.getElementById("left-panel").style.left="-17%";
+    }
+    if (document.documentElement.clientHeight<600){
+      document.getElementById("hidden-menu").style.display="none";
+    }
+    if (document.documentElement.clientWidth<726){
+      document.getElementById("pac-input").style.display="none";
+    }
 };
 
 function right() 
 {
+  //alert(document.documentElement.clientHeight);
     document.getElementById("rightArrow").style.display="block";
+    
+    document.getElementById("pac-input").style.display="block";
     document.getElementById("leftArrow").style.display="none";
-    document.getElementById("left-panel").style.left="-37.5%";
-    document.getElementById("rightButt").style.display="none";
-    document.getElementById("leftButt").style.display="block";
+    if (document.documentElement.clientWidth<726){
+      document.getElementById("left-panel").style.left="-108%";
+    }
+    if (document.documentElement.clientWidth>726){
+      if (document.documentElement.clientHeight<800){
+         document.getElementById("menuID").style.display="block";
+      }
+      document.getElementById("left-panel").style.left="-53%";
+    }
+    document.getElementById("hidden-menu").style.display="initial";
 };

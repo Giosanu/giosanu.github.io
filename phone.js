@@ -114,7 +114,7 @@ function left()
 {
     document.getElementById("rightArrow").style.display="none";
     document.getElementById("leftArrow").style.display="block";
-    document.getElementById("left-panel").style.left="-10%";
+    document.getElementById("left-panel").style.left="-30%";
     document.getElementById("leftButt").style.display="none";  
     document.getElementById("rightButt").style.display="block";
 };

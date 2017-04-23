@@ -1,6 +1,6 @@
 
 
-a{
+li a{
     color: white;
     outline: none;
     text-decoration: none;
@@ -8,20 +8,26 @@ a{
     border-radius: 3px;
     line-height: 3;
     opacity:0.8;
-        border: 1px solid  grey;
+    border: 2.7px solid transparent;
+    padding: 2.7px;
+    
+    -webkit-border-image: url("border2.png") 30 stretch; /* Safari 3.1-5 */
+    -o-border-image: url("border2.png") 30 stretch; /* Opera 11-12.1 */
+    -moz-border-image: url("border2.png") 30 stretch;
+    border-image: url("border2.png") 30 stretch;
 }
 
-a:link, a:visited, a:focus {
+li a:link, a:visited, a:focus {
     
   background-image: url("menu.jpg");
   background-size: 100% 100%;
 }
 
-a:hover {
+li a:hover {
     opacity:1;
 }
 
-a:active, #hidden-menu:active {
+li a:active, #hidden-menu:active {
 
   background-image: url("menu.jpg");
   background-size: 100% 100%;
@@ -44,11 +50,11 @@ a:active, #hidden-menu:active {
         display: inline;
     }
 
-    a{
+    li a{
 
         display: inline-block;
         margin-right: 0.5%;
-        width: 32%
+        width: 29%
     }
 
     ul li:last-child a{
@@ -73,26 +79,28 @@ a:active, #hidden-menu:active {
         font-size: 1rem;
         text-align: center;
         margin: 0;
-        width: 32%;
+        width: 30%;
         height: 40px;
-        border: 1px solid  #19A8E3;
-        min-width: 96px;
-        border-radius: 3px;
+        border: 5px solid transparent;
+        padding: 5px;
+        -webkit-border-image: url("border2.png") 50 stretch; /* Safari 3.1-5 */
+        -o-border-image: url("border2.png") 50 stretch; /* Opera 11-12.1 */
+        -moz-border-image: url("border2.png") 50 stretch;
+        border-image: url("border2.png") 50 stretch;
+        border-radius: 5%;
         line-height: 270%;
     }
 
     .menu-bar{
          font-family: "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
-        width: 32%;
+        width: 30%;
         display: none;
-        min-width: 96px;
         position: absolute;
         padding: 0;
         margin: 0;
-        bottom: 47px;
-
+        bottom: 63px;
         font-size: 0.8rem;
-        left: 30.33%;
+        left: 32%;
     }
 
     .menu-bar li{
@@ -108,12 +116,33 @@ a:active, #hidden-menu:active {
     #hidden-menu:active + .menu-bar, #hidden-menu:hover + .menu-bar{
         display: block;
     }
-
+    .menu:hover #left-panel{
+        opacity: 0.4;
+    }
     #hidden-menu:active, #hidden-menu:hover{
         background-color: #ABFACD;
     }
 
     .menu-bar:hover{
+        display: block;
+    }
+
+}
+
+@media (max-height: 600px) {
+    #hidden-menu{
+        display: none;
+    }
+    #menuID{
+        display:none;
+    }
+}
+
+@media (max-height: 600px) {
+    #hidden-menu{
+        display: block;
+    }
+    #menuID{
         display: block;
     }
 }
