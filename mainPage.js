@@ -200,6 +200,8 @@ function left()
     document.getElementById("left-panel").style.left="-17%";
     }
     if (document.documentElement.clientHeight<600){
+      
+    document.getElementById("upMenu").style.display="none";
       document.getElementById("hidden-menu").style.display="none";
     }
     if (document.documentElement.clientWidth<726){
