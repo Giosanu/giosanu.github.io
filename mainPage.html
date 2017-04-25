@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="initial-scale=1.0, width=device-width">
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="mainPage.css">
+    <link rel="stylesheet" type="text/css" href="main-page.css">
+    <link rel="stylesheet" type="text/css" href="switchButtons.css">
+</head>
+<body onresize="checkResp()">
+    
+    <input id="pac-input" class="controls" type="text" placeholder="Search place here.." >
+
+    </input>
+    <script src="mainPage.js"></script>
+     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRYFIiuyheFB9JYUl0yTlYW9jYGecAhGY&libraries=places&callback=initAutocomplete" async defer></script>
+    <div id="map"></div>
+    <div id="left-panel">
+        <div id="switch-menu">
+            <img id="dropDown" src="drop2.png" width="40" height="40" onclick="myDropDown()"/>
+            <ul id="ulDown">
+                <li><button id="placeButt" onclick="switchToPlaces()"><img src="marker.svg" width="30px" height="20px">Places</button></li><li><button id="newsButton" onclick="switchToNews()"><img src="newsIcon.png" width="30px" height="20px">News Feed</button></li><li><button id="friendsButton" onclick="switchToFriends()"><img src="friendsIcon.png" width="25px" height="22px">Friends</button></li><li><button id="reccButton" onclick="switchToRecc()"><img src="reccIcon.png" width="25px" height="20px">Recommendations</button></li>
+            </ul>
+        </div>
+        <div id="places" >
+        </div>
+         <svg id="leftArrow" class="arrow left" width="20%" height="20%" viewBox="0 0 50 500" onclick="right()">
+                        <polyline fill="none" stroke="white"  stroke-width="6px" points="
+                        45.63,500.8 10.375,250.087 45.63,0.375 "/>
+                    </svg>  
+        <svg  id="rightArrow"  class="arrow right" width="20%" height="20%"  viewBox="0 0 50 500" onclick="left()" >
+                        <polyline fill="none" stroke="white" stroke-width="6px" points="
+                        0.375,0.375 45.63,250.087 0.375,500.8 "/>
+        </svg>
+    </div>
+    
+     <div id="menuID" class="menu">
+        <p id="hidden-menu" onclick="myHiddenMenu()" ></p>
+        <ul id="upMenu" class="menu-bar">
+            <li><a class="bottom-button" href="#">My Profile</a></li><li><a class="bottom-button" href="#">Check-in</a></li><li><a class="bottom-button" href="#">Sign out</a></li>
+        </ul>
+    </div>
+</body>

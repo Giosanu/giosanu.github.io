@@ -102,7 +102,7 @@ var directionsService;
             }));
             //put info in cells
 
-            placesList.innerHTML += '<div id="row"><div id="options"><img id="heart" src="heart.svg" onclick="alert(\'Added ' + parse(place.name) +' to your favorites list!\')" class="add" padding-right="10" width="40" height="40"/><img src="marker.svg" onclick="fo(\''+ parse(place.name) + ' \',\''+parse(place.name) + ' ' + place.formatted_address +'\')" class="add"  width="40" height="40"/><img src="'+ place.icon+'" id= "placeType" class="add" onclick="alert(\'' + place.formatted_address +'\')" width="40" height="40"/></div><button onclick="calcRoute(\''+parse(place.name) + ' ' + place.formatted_address +'\')" class="flex-item" onclick="direction()">'  +  parse(place.name) + '</button><br><div>';
+            placesList.innerHTML += '<div id="row"><div id="options"><img id="heart" src="heart.svg" onclick="alert(\'Added ' + parse(place.name) +' to your favorites list!\')" class="add" padding-right="10" width="40" height="40"/><img src="marker.svg" onclick="fo(\''+ parse(place.name) + ' \',\''+parse(place.name) + ' ' + place.formatted_address +'\')" class="add"  width="40" height="40"/><img src="'+ place.icon+'" id= "placeType" class="add" onclick="alert(\'' + place.formatted_address +'\')" width="40" height="40"/></div><button id="placeButton" onclick="calcRoute(\''+parse(place.name) + ' ' + place.formatted_address +'\')" class="flex-item" onclick="direction()">'  +  parse(place.name) + '</button><br><div>';
             if (place.geometry.viewport) {
               // Only geocodes have viewport.
               bounds.union(place.geometry.viewport);
@@ -148,6 +148,19 @@ function fo(name, place){
       right();
   }
 }
+var toggleDown = 0;
+function myDropDown(){
+  if(toggleDown==0){
+    toggleDown = 1;
+    document.getElementById("ulDown").style.display="block";
+    document.getElementById("ulDown").style.margin="3%  0  0 -12%";
+  }
+  else{
+    toggleDown = 0;
+    document.getElementById("ulDown").style.display="none";
+  }
+}
+
 function calcRoute(end) {
    infoWindow.close();
    markers.forEach(function(marker) {
@@ -171,8 +184,10 @@ function calcRoute(end) {
         infoWindow.open(map);
         right();
 }
+var toggleLeftPanel = 0;
 function left() 
 {
+    toggleLeftPanel=1;
     document.getElementById("rightArrow").style.display="none";
     document.getElementById("leftArrow").style.display="block"; 
     if (document.documentElement.clientWidth<726){
@@ -191,16 +206,30 @@ function left()
       document.getElementById("pac-input").style.display="none";
     }
 };
+var hiddenMenuToggle = 0;
+function myHiddenMenu(){
+  if(toggleDown==0){
+    toggleDown = 1;
+    document.getElementById("upMenu").style.display="block";
+  }
+  else{
+    toggleDown = 0;
+    document.getElementById("upMenu").style.display="none";
+  }
+}
+
 
 function right() 
 {
+  
+    toggleLeftPanel=0;
   //alert(document.documentElement.clientHeight);
     document.getElementById("rightArrow").style.display="block";
     
     document.getElementById("pac-input").style.display="block";
     document.getElementById("leftArrow").style.display="none";
     if (document.documentElement.clientWidth<726){
-      document.getElementById("left-panel").style.left="-108%";
+      document.getElementById("left-panel").style.left="-105%";
     }
     if (document.documentElement.clientWidth>726){
       if (document.documentElement.clientHeight<800){
@@ -210,3 +239,67 @@ function right()
     }
     document.getElementById("hidden-menu").style.display="initial";
 };
+function checkResp(){
+    //fix left panel button
+    if (document.documentElement.clientWidth>726){            
+        if(toggleLeftPanel==1){
+           document.getElementById("pac-input").style.display="block";
+        }
+        document.getElementById("ulDown").style.display="block";
+        
+        document.getElementById("ulDown").style.margin="3%  0  0 0%";
+        if(toggleLeftPanel==0){
+          right();
+        }
+    }
+    if (document.documentElement.clientWidth<726){
+      if(toggleLeftPanel==0){
+          right();
+        }
+      document.getElementById("ulDown").style.margin="3%  0  0 -12%";
+      if (toggleDown==0){
+        
+          document.getElementById("ulDown").style.display="none";
+      }
+    }
+    //fix left panel
+    //fix left panel in respect with bottom buttons
+    //fix left panel in respect with search bar
+}
+var togglePlaces = 0;
+var toggleNews = 0;
+var toggleFriends = 0;
+var toggleRecc = 0;
+function switchToPlaces(){
+  togglePlaces = 1;
+  toggleNews = 0;
+  toggleFriends = 0;
+  toggleRecc = 0;
+  document.getElementById("places").style.display="block";
+  document.getElementById("placeButt").style.opacity="1";
+}
+function switchToNews(){
+  togglePlaces = 0;
+  toggleFriends = 1;
+  toggleNews = 0;
+  toggleRecc = 0;
+  document.getElementById("places").style.display="none";
+  
+  document.getElementById("placeButt").style.opacity="0.6";
+}
+function switchToFriends(){
+  togglePlaces = 0;
+  toggleNews = 0;
+  toggleFriends = 1;
+  toggleRecc = 0;
+  document.getElementById("places").style.display="none";
+  document.getElementById("placeButt").style.opacity="0.6";
+}
+function switchToRecc(){
+  togglePlaces = 0;
+  toggleNews = 0;
+  toggleFriends = 0;
+  toggleRecc = 1;
+  document.getElementById("places").style.display="none";
+  document.getElementById("placeButt").style.opacity="0.6";
+}

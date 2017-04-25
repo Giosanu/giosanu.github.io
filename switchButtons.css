@@ -1,0 +1,99 @@
+@font-face {
+    font-family: 'Cray';
+    src: url('DK Crayon Crumble.ttf') format('truetype');
+  }
+button:focus {outline:0;}
+
+  #switch-menu{
+    width: 80%;
+    left:25%;
+    position: relative;
+    opacity: 0.8;
+    bottom:10px;
+  }
+  #switch-menu ul li button{    
+    border: transparent;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    color: white;
+    text-decoration: none;
+    background-color: transparent;
+    font-family: 'Cray';
+    letter-spacing: 1px;
+    border-bottom: black;
+    border-left: black;
+    font-size: 2em;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    top:10px;
+    right: 0%;
+    opacity: 0.6;
+  }
+#switch-menu ul li button:link, #switch-menu ul li a:visited, #switch-menu ul li a:focus {
+    
+  background-image: url("menu.jpg");
+  background-size: 100% 100%;
+}
+  #switch-menu ul{
+    list-style-type: none;
+    left:0;
+    margin:2% 0 0 0;
+    padding-left:5%;
+    padding-right:0;
+    margin-left:0;
+    margin-right:0;
+  }
+  #switch-menu ul li{
+    padding-left:1%;
+    padding-right:0;
+    left:0;
+      margin-left:0;
+       margin-right:0;
+  }
+#switch-menu ul li:first-child{
+  margin-left:0;
+}
+#switch-menu ul li:last-child{
+  margin-right:0;
+}
+#dropDown{
+  display: none;
+}
+
+#switch-menu ul li button:hover {
+    opacity:1;
+}
+@media (min-width: 726px){
+ 
+  #switch-menu ul{
+    list-style-type: none;
+    left:0;
+    margin:2% 0 0 0;
+    padding-left:5%;
+    padding-right:0;
+    margin-left:0;
+    margin-right:0;
+  }
+}
+@media (max-width: 726px)  {
+    
+  #switch-menu{
+    z-index: 1;
+  }
+  #switch-menu ul{
+    display:none;
+  }
+  #dropDown{   
+    display: inline-block;
+    border: transparent;
+    background: transparent;
+    padding-left:0;
+    margin-bottom:-5%;
+    cursor: pointer;
+    position: relative;
+    padding-top:10%;
+    -webkit-padding-before:10%;
+  }
+}
